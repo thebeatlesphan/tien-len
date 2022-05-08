@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/thebeatlesphan/tien-len/static/css/main.973f0b69.css",
-    "main.js": "/thebeatlesphan/tien-len/static/js/main.4a17ce1d.js",
-    "index.html": "/thebeatlesphan/tien-len/index.html",
-    "main.973f0b69.css.map": "/thebeatlesphan/tien-len/static/css/main.973f0b69.css.map",
-    "main.4a17ce1d.js.map": "/thebeatlesphan/tien-len/static/js/main.4a17ce1d.js.map"
+    "main.css": "/tien-len/static/css/main.973f0b69.css",
+    "main.js": "/tien-len/static/js/main.4a17ce1d.js",
+    "index.html": "/tien-len/index.html",
+    "main.973f0b69.css.map": "/tien-len/static/css/main.973f0b69.css.map",
+    "main.4a17ce1d.js.map": "/tien-len/static/js/main.4a17ce1d.js.map"
   },
   "entrypoints": [
     "static/css/main.973f0b69.css",
