@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/thebeatlesphan/tien-len.git/static/css/main.073c9b0a.css",
+    "main.js": "/thebeatlesphan/tien-len.git/static/js/main.8316ab99.js",
+    "static/js/787.7a7195ac.chunk.js": "/thebeatlesphan/tien-len.git/static/js/787.7a7195ac.chunk.js",
+    "static/media/logo.svg": "/thebeatlesphan/tien-len.git/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/thebeatlesphan/tien-len.git/index.html",
+    "main.073c9b0a.css.map": "/thebeatlesphan/tien-len.git/static/css/main.073c9b0a.css.map",
+    "main.8316ab99.js.map": "/thebeatlesphan/tien-len.git/static/js/main.8316ab99.js.map",
+    "787.7a7195ac.chunk.js.map": "/thebeatlesphan/tien-len.git/static/js/787.7a7195ac.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.8316ab99.js"
+  ]
+}
