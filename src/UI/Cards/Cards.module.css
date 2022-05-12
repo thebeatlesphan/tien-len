@@ -1,0 +1,57 @@
+.card {
+    height: 8em;
+    width: 5em;
+    border: solid black 0.1em;
+    border-radius: 0.5em;
+    display: flex;
+    position: relative;
+    background-color: whitesmoke;
+}
+
+.card:hover {
+    transform: translateY(-1em);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.card:not(:hover) {
+    transform: translateY(0);
+    transition: 1s;
+}
+
+.card:active {
+    transform: translateY(-1.5em);
+    box-shadow: 10px 10px 10px 10px yellow;
+}
+.topCorner {
+    display: flex;
+    flex-direction: column;
+    padding: 0.2em;
+}
+
+.botCorner {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: rotate(180deg);
+    bottom: 0;
+    right: 0;
+    padding: 0.2em;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    content: "\2660";
+}
+
+.hearts {
+    color: red;
+}
+
+.diamonds {
+    color: red;
+}
