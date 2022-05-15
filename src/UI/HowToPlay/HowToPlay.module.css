@@ -22,7 +22,30 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: black;
-  opacity: 0.3;
-  
+  background-color: white;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 1rem;
+  border: none;
+  background-color: white;
+  border: 0.1rem solid black;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+}
+
+.close:hover {
+  transform: scale(1.2);
+}
+
+.close:active {
+  background-color: rgb(238, 234, 234);
+}
+
+.steps {
+  position: absolute;
+  top: 2rem;
 }
