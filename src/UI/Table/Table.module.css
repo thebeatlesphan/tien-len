@@ -7,6 +7,7 @@
   transform: translate(-50%, -50%);
   border: black solid 0.2em;
   border-radius: 1em;
+  overflow: hidden;
 }
 
 .shuffle {
@@ -19,4 +20,9 @@
   position: absolute;
   top: 2em;
   right: 0;
+}
+
+.playerSeat {
+  position: absolute;
+  bottom: -80px;
 }

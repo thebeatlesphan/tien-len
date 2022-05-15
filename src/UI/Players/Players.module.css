@@ -1,0 +1,9 @@
+.player {
+    display: grid;
+    grid-template-columns: repeat(7, 40px);
+    grid-template-rows: 75px
+}
+
+/* .poop {
+    background-color: brown;
+} */

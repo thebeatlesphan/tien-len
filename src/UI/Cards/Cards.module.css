@@ -1,11 +1,17 @@
 .card {
-    height: 8em;
-    width: 5em;
+    height: 150px;
+    width: 100px;
     border: solid black 0.1em;
     border-radius: 0.5em;
-    display: flex;
     position: relative;
     background-color: whitesmoke;
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: space-between;
+}
+
+div div span {
+    width: 20px;
 }
 
 .card:hover {
@@ -32,7 +38,6 @@
 .botCorner {
     display: flex;
     flex-direction: column;
-    position: absolute;
     transform: rotate(180deg);
     bottom: 0;
     right: 0;
@@ -54,4 +59,8 @@
 
 .diamonds {
     color: red;
+}
+
+.poop {
+    background-color: brown;
 }

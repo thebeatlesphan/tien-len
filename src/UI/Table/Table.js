@@ -1,17 +1,37 @@
 import React, { useState } from "react";
 import classes from "./Table.module.css";
-import Cards from "../Cards/Cards";
+// import Cards from "../Cards/Cards";
 import Players from "../Players/Players";
 
 // initialize deck
-const suits = ["spades", "clubs", "diamonds", "hearts"];
-const values = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
+const suits = ["hearts", "clubs", "spades", "diamonds"];
+const values = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 const deck = [];
 for (const suit of suits) {
   for (const value of values) {
     deck.push([value, suit]);
   }
 }
+
+// sort cards by low to high ranking
+let suitRanking = {
+  spades: 0,
+  clubs: 1,
+  diamonds: 2,
+  hearts: 3,
+};
+
+const sortValues = (array) => {
+  return array.sort((a, b) => a[0] - b[0]);
+};
+
+const sortSuits = (array) => {
+  return array.sort((a, b) => {
+    if (a[0] === b[0]) {
+      return suitRanking[a[1]] - suitRanking[b[1]];
+    } else return 0;
+  });
+};
 
 // algorithm for shuffling deck
 const shuffleDeck = (deck) => {
@@ -35,41 +55,62 @@ let players = {
   player4: hand,
 };
 
+// algorithm for dealing to all four players
+const pullCard = (deck) => {
+  return deck.shift();
+};
+const dealCards = (deck, players) => {
+  let copyDeck = [...deck];
+  let copyPlayers = { ...players };
+
+  while (copyDeck.length > 0) {
+    let x = pullCard(copyDeck);
+    copyPlayers["player1"] = [...copyPlayers["player1"], x];
+    let t = pullCard(copyDeck);
+    copyPlayers["player2"] = [...copyPlayers["player2"], t];
+    let y = pullCard(copyDeck);
+    copyPlayers["player3"] = [...copyPlayers["player3"], y];
+    let z = pullCard(copyDeck);
+    copyPlayers["player4"] = [...copyPlayers["player4"], z];
+  }
+
+  copyPlayers = {
+    player1: sortSuits(sortValues(copyPlayers["player1"])),
+    player2: sortSuits(sortValues(copyPlayers["player2"])),
+    player3: sortSuits(sortValues(copyPlayers["player3"])),
+    player4: sortSuits(sortValues(copyPlayers["player4"])),
+  };
+  return copyPlayers;
+};
+
 const Table = () => {
   const [currentDeck, newDeck] = useState(deck);
   const [currentPlayers, updatePlayers] = useState(players);
+  const [gameState, setGameState] = useState("false")
 
   const shuffleCardsHandler = () => {
     newDeck((prevDeck) => shuffleDeck(prevDeck));
   };
 
   const dealDeckHandler = () => {
-    let copyDeck = currentDeck;
-    let copyPlayers = currentPlayers;
-
-    while (copyDeck.length > 0) {
-      for (let hand in copyPlayers) {
-        let dealing = copyDeck.shift();
-        copyPlayers[hand].push(dealing);
-      }
-    }
-    console.log(copyPlayers);
-    console.log("done dealing...");
+    updatePlayers((prevPlayers) => dealCards(currentDeck, prevPlayers));
   };
 
   return (
     <>
+      <button className={classes.shuffle} onClick={shuffleCardsHandler}>
+        shuffle
+      </button>
+      <button className={classes.deal} onClick={dealDeckHandler}>
+        deal
+      </button>
       <div className={classes.table}>
-        <button className={classes.shuffle} onClick={shuffleCardsHandler}>
-          shuffle
-        </button>
-        <button className={classes.deal} onClick={dealDeckHandler}>
-          deal
-        </button>
+        <div className={classes.playerSeat}>
+          {currentPlayers["player1"] && (
+            <Players hand={currentPlayers["player1"]} />
+          )}
+        </div>
       </div>
-      {currentDeck.map((x) => (
-        <Cards value={x[0]} suit={x[1]} key={x[0] + x[1]}></Cards>
-      ))}
     </>
   );
 };
