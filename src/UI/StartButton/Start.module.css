@@ -1,0 +1,26 @@
+.start {
+  position: absolute;
+  top: 40%;
+  left: 34%;
+  height: 3rem;
+  width: 6rem;
+  background-color: white;
+  cursor: pointer;
+  border: 0.01rem solid black;
+  border-radius: 0.1rem;
+}
+
+.start:hover {
+  transform: scale(1.2);
+}
+
+.start:active {
+  background-color: rgb(238, 234, 234);
+}
+
+.title {
+  position: absolute;
+  text-align: center;
+  font-size: 4rem;
+  width: 100%;
+}

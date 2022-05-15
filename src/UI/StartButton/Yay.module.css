@@ -1,0 +1,23 @@
+.yay {
+  position: absolute;
+  top: 40%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  animation: yay 1s;
+  visibility: hidden;
+}
+
+@keyframes yay {
+  0% {
+    visibility: visible;
+    transform: scale(1.5);
+  }
+
+  80% {
+    transform: scale(4);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import classes from "./Table.module.css";
 // import Cards from "../Cards/Cards";
 import Players from "../Players/Players";
+import Start from "../StartButton/Start";
+import Yay from "../StartButton/Yay";
+import HowToPlay from "../HowToPlay/HowToPlay";
 
 // initialize deck
 const suits = ["hearts", "clubs", "spades", "diamonds"];
@@ -86,7 +89,7 @@ const dealCards = (deck, players) => {
 const Table = () => {
   const [currentDeck, newDeck] = useState(deck);
   const [currentPlayers, updatePlayers] = useState(players);
-  const [gameState, setGameState] = useState("false")
+  const [gameState, setGameState] = useState(false);
 
   const shuffleCardsHandler = () => {
     newDeck((prevDeck) => shuffleDeck(prevDeck));
@@ -94,6 +97,10 @@ const Table = () => {
 
   const dealDeckHandler = () => {
     updatePlayers((prevPlayers) => dealCards(currentDeck, prevPlayers));
+  };
+
+  const gameStateHandler = () => {
+    setGameState((prevState) => !prevState);
   };
 
   return (
@@ -105,6 +112,8 @@ const Table = () => {
         deal
       </button>
       <div className={classes.table}>
+        {!gameState && <Start onClick={gameStateHandler} />}
+        {gameState && <Yay />}
         <div className={classes.playerSeat}>
           {currentPlayers["player1"] && (
             <Players hand={currentPlayers["player1"]} />

@@ -1,0 +1,28 @@
+.button {
+  position: absolute;
+  top: 80%;
+  left: 34%;
+  height: 2rem;
+  width: 6rem;
+  background-color: white;
+  cursor: pointer;
+  border: 0.01rem solid black;
+  border-radius: 0.1rem;
+}
+
+.button:hover {
+  transform: scale(1.2);
+}
+
+.button:active {
+  background-color: rgb(238, 234, 234);
+}
+
+.modal {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.3;
+  
+}
