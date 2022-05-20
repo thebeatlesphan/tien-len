@@ -42,7 +42,7 @@ const HowToPlay = () => {
               <li>Solo</li>
               <li>Doubles</li>
               <li>Triples</li>
-              <li>TriplesQuads</li>
+              <li>Quads</li>
               <li>Runs</li>
               <li>Double Runs</li>
             </ul>

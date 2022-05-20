@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Table.module.css";
 // import Cards from "../Cards/Cards";
 import Players from "../Players/Players";
@@ -101,16 +101,16 @@ const Table = () => {
 
   const gameStateHandler = () => {
     setGameState((prevState) => !prevState);
+    newDeck((prevDeck) => console.log(shuffleDeck(prevDeck)));
+    console.log(currentDeck);
   };
+
+  // useEffect(() => {
+  //   updatePlayers((prevPlayers) => dealCards(currentDeck, prevPlayers));
+  // },[currentDeck]);
 
   return (
     <>
-      <button className={classes.shuffle} onClick={shuffleCardsHandler}>
-        shuffle
-      </button>
-      <button className={classes.deal} onClick={dealDeckHandler}>
-        deal
-      </button>
       <div className={classes.table}>
         {!gameState && <Start onClick={gameStateHandler} />}
         {gameState && <Yay />}
