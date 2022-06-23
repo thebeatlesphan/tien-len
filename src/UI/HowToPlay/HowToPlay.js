@@ -22,8 +22,7 @@ const HowToPlay = () => {
             <ol className={classes.list}>
               <h2>HOW TO PLAY</h2>
               <li>
-                Start the first hand with a legal combination if you have the 3
-                of spades.
+                The first play is any legal combination with the 3 of spades.
               </li>
               <li>
                 Take turns clockwise trying to beat the previous combination.

@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classes from "./Table.module.css";
-// import Cards from "../Cards/Cards";
 import Players from "../Players/Players";
 import Start from "../StartButton/Start";
 import Yay from "../StartButton/Yay";
-import HowToPlay from "../HowToPlay/HowToPlay";
 
 // initialize deck
 const suits = ["hearts", "clubs", "spades", "diamonds"];
@@ -51,20 +49,19 @@ const shuffleDeck = (deck) => {
 
 // four players object
 let hand = [];
-let players = {
-  player1: hand,
-  player2: hand,
-  player3: hand,
-  player4: hand,
-};
 
 // algorithm for dealing to all four players
 const pullCard = (deck) => {
   return deck.shift();
 };
-const dealCards = (deck, players) => {
+const dealCards = (deck) => {
   let copyDeck = [...deck];
-  let copyPlayers = { ...players };
+  let copyPlayers = {
+    player1: hand,
+    player2: hand,
+    player3: hand,
+    player4: hand,
+  };
 
   while (copyDeck.length > 0) {
     let x = pullCard(copyDeck);
@@ -86,37 +83,40 @@ const dealCards = (deck, players) => {
   return copyPlayers;
 };
 
+const DEFAULT_STATE = {
+  deck: [],
+  players: {
+    player1: [],
+    player2: [],
+    player3: [],
+    player4: [],
+  },
+  gamestate: false,
+};
+
 const Table = () => {
-  const [currentDeck, newDeck] = useState(deck);
-  const [currentPlayers, updatePlayers] = useState(players);
+  const [game, setGame] = useState(DEFAULT_STATE);
   const [gameState, setGameState] = useState(false);
 
-  const shuffleCardsHandler = () => {
-    newDeck((prevDeck) => shuffleDeck(prevDeck));
-  };
+  const gameHandler = () => {
+    const tempDeck = shuffleDeck(deck);
 
-  const dealDeckHandler = () => {
-    updatePlayers((prevPlayers) => dealCards(currentDeck, prevPlayers));
+    setGame({
+      deck: tempDeck,
+      players: dealCards(tempDeck),
+      gamestate: true,
+    });
   };
-
-  const gameStateHandler = () => {
-    setGameState((prevState) => !prevState);
-    newDeck((prevDeck) => console.log(shuffleDeck(prevDeck)));
-    console.log(currentDeck);
-  };
-
-  // useEffect(() => {
-  //   updatePlayers((prevPlayers) => dealCards(currentDeck, prevPlayers));
-  // },[currentDeck]);
+  console.log(game);
 
   return (
     <>
       <div className={classes.table}>
-        {!gameState && <Start onClick={gameStateHandler} />}
-        {gameState && <Yay />}
+        {!game["gamestate"] && <Start onClick={gameHandler} />}
+        {game["gamestate"] && <Yay />}
         <div className={classes.playerSeat}>
-          {currentPlayers["player1"] && (
-            <Players hand={currentPlayers["player1"]} />
+          {game["gamestate"] && game["players"]["player1"] && (
+            <Players hand={game["players"]["player1"]} />
           )}
         </div>
       </div>
