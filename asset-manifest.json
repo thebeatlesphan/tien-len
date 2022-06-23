@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/tien-len/static/css/main.aa1aef10.css",
-    "main.js": "/tien-len/static/js/main.38d53a0b.js",
+    "main.js": "/tien-len/static/js/main.36badf9b.js",
     "index.html": "/tien-len/index.html",
     "main.aa1aef10.css.map": "/tien-len/static/css/main.aa1aef10.css.map",
-    "main.38d53a0b.js.map": "/tien-len/static/js/main.38d53a0b.js.map"
+    "main.36badf9b.js.map": "/tien-len/static/js/main.36badf9b.js.map"
   },
   "entrypoints": [
     "static/css/main.aa1aef10.css",
-    "static/js/main.38d53a0b.js"
+    "static/js/main.36badf9b.js"
   ]
 }
